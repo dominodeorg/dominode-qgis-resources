@@ -127,8 +127,20 @@ class DomiNodeTopoProjectReportAlgorithm(QgsProcessingAlgorithm):
         #json_file = self.parameterAsString(parameters, self.JSON_REPORT, context)
 
         project = QgsProject.instance()
+        # alternatively, we could create a new instance from a fileproject = QgsProject
+        # project.read('C:/path/file.qgs')
 
         themes = project.mapThemeCollection()
+
+        # By rights we should be creating a theme that makes a "snapshot" of the
+        # current project state so that we can reset it after the algorithm runs.
+        # mapThemeRecord = QgsMapThemeCollection.createThemeFromCurrentState(
+        #     QgsProject.instance().layerTreeRoot(),
+        #     iface.layerTreeView().model()
+        # )
+        # temporary_theme_name = 'map_report_temporary_theme'
+        # themes.insert(temporary_theme_name, mapThemeRecord)
+
         theme_names = themes.mapThemes()
         root = project.layerTreeRoot()
         model = QgsLayerTreeModel(root)
@@ -141,6 +153,8 @@ class DomiNodeTopoProjectReportAlgorithm(QgsProcessingAlgorithm):
             themes.applyTheme(theme, root, model)
             theme_results = list_active_layers(project, feedback)
             results[theme] = theme_results
+
+        # themes.removeMapTheme(temporary_theme_name, mapThemeRecord)
 
         #with open(json_file, "w") as output_file:
         #    json.dump(results, output_file)
