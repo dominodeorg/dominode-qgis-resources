@@ -1,0 +1,21 @@
+{
+  "name": "DomiNode - legacy vector validation checklist",
+  "description": "A checklist for validating legacy vector datasets",
+  "dataset_type": "vector",
+  "validation_artifact_type": "dataset",
+  "checks": [
+    {
+      "name": "legacy",
+      "description": "Check for legacy vector datasets.",
+      "guide": "This check will always defaults to True, it has been added for the validation of DomiNode legacy vector datasets",
+     "automation": {
+        "algorithm_id": "script:noopvalidator",
+        "artifact_parameter_name": "INPUT",
+        "output_name": "OUTPUT"
+      }
+    }
+  ],
+  "report": {
+    "algorithm_id": "script:dominodereportuploader"
+  }
+}
