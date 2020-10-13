@@ -13,6 +13,7 @@
 
 from qgis.PyQt.QtCore import QCoreApplication
 from qgis.core import (QgsProject,
+                       QgsMapThemeCollection,
                        QgsLayerTreeModel,
                        QgsMapLayer,
                        QgsProcessing,
@@ -25,6 +26,10 @@ import json
 from datetime import date
 
 # Pollute the global namespace with current project variables
+
+# This (dirty) cheat will let us set the algorithm default values
+# based on the current project settings
+
 project_home = QgsProject.instance().readPath("./")
 project_home = os.path.abspath(project_home)
 current_project_name = QgsProject.instance().baseName()
@@ -109,13 +114,13 @@ class DomiNodeTopoProjectReportAlgorithm(QgsProcessingAlgorithm):
             )
         )
 
-        #self.addParameter(
-        #    QgsProcessingParameterFileDestination(
-        #        self.JSON_REPORT,
-        #        self.tr('Output report data'),
-        #        defaultValue = os.path.join(project_home,str(current_project_name + '.mapreport.json'))
-        #    )
-        #)
+        self.addParameter(
+            QgsProcessingParameterFileDestination(
+                self.JSON_REPORT,
+                self.tr('Output report data'),
+                defaultValue = os.path.join(project_home,str(current_project_name + '.mapreport.json'))
+            )
+        )
 
     def processAlgorithm(self, parameters, context, feedback):
         """
@@ -124,40 +129,50 @@ class DomiNodeTopoProjectReportAlgorithm(QgsProcessingAlgorithm):
 
         report_date = date.today().strftime("%d %B %Y")
         text_file = self.parameterAsString(parameters, self.TEXT_REPORT, context)
-        #json_file = self.parameterAsString(parameters, self.JSON_REPORT, context)
+        json_file = self.parameterAsString(parameters, self.JSON_REPORT, context)
 
         project = QgsProject.instance()
-        # alternatively, we could create a new instance from a fileproject = QgsProject
-        # project.read('C:/path/file.qgs')
+
+        # alternatively, we could create a new instance from a file, e.g. 'C:/path/file.qgs'
+
+        # add a self.addParameter of QgsProcessingParameterFile type
+
+        # project_file = self.parameterAsString(parameters, self.INPUT, context)
+
+        # project = QgsProject
+        # project.read()
 
         themes = project.mapThemeCollection()
+        root = project.layerTreeRoot()
+        model = QgsLayerTreeModel(root)
+        theme_names = themes.mapThemes()
 
         # By rights we should be creating a theme that makes a "snapshot" of the
         # current project state so that we can reset it after the algorithm runs.
-        # mapThemeRecord = QgsMapThemeCollection.createThemeFromCurrentState(
-        #     QgsProject.instance().layerTreeRoot(),
-        #     iface.layerTreeView().model()
-        # )
-        # temporary_theme_name = 'map_report_temporary_theme'
-        # themes.insert(temporary_theme_name, mapThemeRecord)
+        mapThemeRecord = QgsMapThemeCollection.createThemeFromCurrentState(root,model)
+        temporary_theme_name = 'map_report_temporary_theme'
+        themes.insert(temporary_theme_name, mapThemeRecord)
 
-        theme_names = themes.mapThemes()
-        root = project.layerTreeRoot()
-        model = QgsLayerTreeModel(root)
         results = json.loads('{}')
         for theme in theme_names:
 
             if feedback.isCanceled():
                 return {}
 
-            themes.applyTheme(theme, root, model)
-            theme_results = list_active_layers(project, feedback)
-            results[theme] = theme_results
+            # skip the temporary theme, although it shouldn't be in the list unless
+            # theme_names is defined after the temporary theme is created
+            if not theme == temporary_theme_name:
+                themes.applyTheme(theme, root, model)
+                theme_results = list_active_layers(project, feedback)
+                results[theme] = theme_results
 
-        # themes.removeMapTheme(temporary_theme_name, mapThemeRecord)
+        # set and remove the temporary theme
+        themes.applyTheme(temporary_theme_name, root, model)
+        themes.removeMapTheme(temporary_theme_name)
 
-        #with open(json_file, "w") as output_file:
-        #    json.dump(results, output_file)
+        # write out json file
+        with open(json_file, "w") as output_file:
+            json.dump(results, output_file)
 
         with open(text_file, "w") as output_file:
             output_file.write('# DomiNode Topographic Map Report\n')
