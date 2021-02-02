@@ -1,329 +1,166 @@
 <!DOCTYPE model>
 <Option type="Map">
-  <Option name="children" type="Map">
-    <Option name="gdal:importvectorintopostgisdatabaseavailableconnections_1" type="Map">
-      <Option name="active" value="true" type="bool"/>
+  <Option type="Map" name="children">
+    <Option type="Map" name="script:import vector layer">
+      <Option type="bool" name="active" value="true"/>
       <Option name="alg_config"/>
-      <Option name="alg_id" value="gdal:importvectorintopostgisdatabaseavailableconnections" type="QString"/>
-      <Option name="component_description" value="Export to PostgreSQL (available connections)" type="QString"/>
-      <Option name="component_pos_x" value="424" type="double"/>
-      <Option name="component_pos_y" value="489" type="double"/>
-      <Option name="dependencies" type="StringList">
-        <Option value="script:expressiontostringconverter_1" type="QString"/>
-        <Option value="script:resourcenamevalidator_1" type="QString"/>
+      <Option type="QString" name="alg_id" value="script:import vector layer"/>
+      <Option type="QString" name="color" value=""/>
+      <Option type="Map" name="comment">
+        <Option type="QString" name="color" value=""/>
+        <Option type="QString" name="component_description" value=""/>
+        <Option type="double" name="component_height" value="60"/>
+        <Option type="double" name="component_pos_x" value="351"/>
+        <Option type="double" name="component_pos_y" value="200"/>
+        <Option type="double" name="component_width" value="100"/>
+        <Option type="bool" name="outputs_collapsed" value="true"/>
+        <Option type="bool" name="parameters_collapsed" value="true"/>
       </Option>
-      <Option name="id" value="gdal:importvectorintopostgisdatabaseavailableconnections_1" type="QString"/>
-      <Option name="outputs"/>
-      <Option name="outputs_collapsed" value="true" type="bool"/>
-      <Option name="parameters_collapsed" value="true" type="bool"/>
-      <Option name="params" type="Map">
-        <Option name="ADDFIELDS" type="List">
-          <Option type="Map">
-            <Option name="source" value="2" type="int"/>
-            <Option name="static_value" value="false" type="bool"/>
-          </Option>
-        </Option>
-        <Option name="APPEND" type="List">
-          <Option type="Map">
-            <Option name="source" value="2" type="int"/>
-            <Option name="static_value" value="false" type="bool"/>
-          </Option>
-        </Option>
-        <Option name="A_SRS" type="List">
-          <Option type="Map">
-            <Option name="source" value="2" type="int"/>
-            <Option name="static_value" type="invalid"/>
-          </Option>
-        </Option>
-        <Option name="CLIP" type="List">
-          <Option type="Map">
-            <Option name="source" value="2" type="int"/>
-            <Option name="static_value" value="false" type="bool"/>
-          </Option>
-        </Option>
-        <Option name="DATABASE" type="List">
-          <Option type="Map">
-            <Option name="child_id" value="script:expressiontostringconverter_1" type="QString"/>
-            <Option name="output_name" value="OUTPUT" type="QString"/>
-            <Option name="source" value="1" type="int"/>
-          </Option>
-        </Option>
-        <Option name="DIM" type="List">
-          <Option type="Map">
-            <Option name="source" value="2" type="int"/>
-            <Option name="static_value" value="0" type="int"/>
-          </Option>
-        </Option>
-        <Option name="GEOCOLUMN" type="List">
-          <Option type="Map">
-            <Option name="source" value="2" type="int"/>
-            <Option name="static_value" value="geom" type="QString"/>
-          </Option>
-        </Option>
-        <Option name="GT" type="List">
-          <Option type="Map">
-            <Option name="source" value="2" type="int"/>
-            <Option name="static_value" value="" type="QString"/>
-          </Option>
-        </Option>
-        <Option name="GTYPE" type="List">
-          <Option type="Map">
-            <Option name="source" value="2" type="int"/>
-            <Option name="static_value" value="0" type="int"/>
-          </Option>
-        </Option>
-        <Option name="INDEX" type="List">
-          <Option type="Map">
-            <Option name="source" value="2" type="int"/>
-            <Option name="static_value" value="false" type="bool"/>
-          </Option>
-        </Option>
-        <Option name="INPUT" type="List">
-          <Option type="Map">
-            <Option name="parameter_name" value="inputlayer" type="QString"/>
-            <Option name="source" value="0" type="int"/>
-          </Option>
-        </Option>
-        <Option name="LAUNDER" type="List">
-          <Option type="Map">
-            <Option name="source" value="2" type="int"/>
-            <Option name="static_value" value="true" type="bool"/>
-          </Option>
-        </Option>
-        <Option name="OPTIONS" type="List">
-          <Option type="Map">
-            <Option name="source" value="2" type="int"/>
-            <Option name="static_value" value="" type="QString"/>
-          </Option>
-        </Option>
-        <Option name="OVERWRITE" type="List">
-          <Option type="Map">
-            <Option name="source" value="2" type="int"/>
-            <Option name="static_value" value="true" type="bool"/>
-          </Option>
-        </Option>
-        <Option name="PK" type="List">
-          <Option type="Map">
-            <Option name="source" value="2" type="int"/>
-            <Option name="static_value" value="id" type="QString"/>
-          </Option>
-        </Option>
-        <Option name="PRECISION" type="List">
-          <Option type="Map">
-            <Option name="source" value="2" type="int"/>
-            <Option name="static_value" value="true" type="bool"/>
-          </Option>
-        </Option>
-        <Option name="PRIMARY_KEY" type="List">
-          <Option type="Map">
-            <Option name="source" value="2" type="int"/>
-            <Option name="static_value" type="invalid"/>
-          </Option>
-        </Option>
-        <Option name="PROMOTETOMULTI" type="List">
-          <Option type="Map">
-            <Option name="source" value="2" type="int"/>
-            <Option name="static_value" value="false" type="bool"/>
-          </Option>
-        </Option>
-        <Option name="SCHEMA" type="List">
-          <Option type="Map">
-            <Option name="child_id" value="script:resourcenamevalidator_1" type="QString"/>
-            <Option name="output_name" value="OUTPUT_DB_STAGING_SCHEMA_NAME" type="QString"/>
-            <Option name="source" value="1" type="int"/>
-          </Option>
-        </Option>
-        <Option name="SEGMENTIZE" type="List">
-          <Option type="Map">
-            <Option name="source" value="2" type="int"/>
-            <Option name="static_value" value="" type="QString"/>
-          </Option>
-        </Option>
-        <Option name="SHAPE_ENCODING" type="List">
-          <Option type="Map">
-            <Option name="source" value="2" type="int"/>
-            <Option name="static_value" value="" type="QString"/>
-          </Option>
-        </Option>
-        <Option name="SIMPLIFY" type="List">
-          <Option type="Map">
-            <Option name="source" value="2" type="int"/>
-            <Option name="static_value" value="" type="QString"/>
-          </Option>
-        </Option>
-        <Option name="SKIPFAILURES" type="List">
-          <Option type="Map">
-            <Option name="source" value="2" type="int"/>
-            <Option name="static_value" value="false" type="bool"/>
-          </Option>
-        </Option>
-        <Option name="SPAT" type="List">
-          <Option type="Map">
-            <Option name="source" value="2" type="int"/>
-            <Option name="static_value" type="invalid"/>
-          </Option>
-        </Option>
-        <Option name="S_SRS" type="List">
-          <Option type="Map">
-            <Option name="source" value="2" type="int"/>
-            <Option name="static_value" type="invalid"/>
-          </Option>
-        </Option>
-        <Option name="TABLE" type="List">
-          <Option type="Map">
-            <Option name="child_id" value="script:resourcenamevalidator_1" type="QString"/>
-            <Option name="output_name" value="OUTPUT_DATASET_NAME" type="QString"/>
-            <Option name="source" value="1" type="int"/>
-          </Option>
-        </Option>
-        <Option name="T_SRS" type="List">
-          <Option type="Map">
-            <Option name="source" value="2" type="int"/>
-            <Option name="static_value" type="invalid"/>
-          </Option>
-        </Option>
-        <Option name="WHERE" type="List">
-          <Option type="Map">
-            <Option name="source" value="2" type="int"/>
-            <Option name="static_value" value="" type="QString"/>
-          </Option>
-        </Option>
-      </Option>
-    </Option>
-    <Option name="qgis:postgisexecutesql_1" type="Map">
-      <Option name="active" value="true" type="bool"/>
-      <Option name="alg_config"/>
-      <Option name="alg_id" value="qgis:postgisexecutesql" type="QString"/>
-      <Option name="component_description" value="set staging permissions" type="QString"/>
-      <Option name="component_pos_x" value="841" type="double"/>
-      <Option name="component_pos_y" value="645" type="double"/>
-      <Option name="dependencies" type="StringList">
-        <Option value="gdal:importvectorintopostgisdatabaseavailableconnections_1" type="QString"/>
-        <Option value="script:expressiontostringconverter_1" type="QString"/>
-        <Option value="script:resourcenamevalidator_1" type="QString"/>
-      </Option>
-      <Option name="id" value="qgis:postgisexecutesql_1" type="QString"/>
-      <Option name="outputs"/>
-      <Option name="outputs_collapsed" value="true" type="bool"/>
-      <Option name="parameters_collapsed" value="true" type="bool"/>
-      <Option name="params" type="Map">
-        <Option name="DATABASE" type="List">
-          <Option type="Map">
-            <Option name="child_id" value="script:expressiontostringconverter_1" type="QString"/>
-            <Option name="output_name" value="OUTPUT" type="QString"/>
-            <Option name="source" value="1" type="int"/>
-          </Option>
-        </Option>
-        <Option name="SQL" type="List">
-          <Option type="Map">
-            <Option name="expression" value="format(&#xa;    'SELECT DomiNodeSetStagingPermissions(%1%2.%3%4%3%1)',&#xa;&#x9;char(39),&#xa;&#x9; @Validate_resource_name_OUTPUT_DB_STAGING_SCHEMA_NAME,&#xa;&#x9;char(34), &#xa;&#x9;@Validate_resource_name_OUTPUT_DATASET_NAME &#xa;)" type="QString"/>
-            <Option name="source" value="3" type="int"/>
-          </Option>
-        </Option>
-      </Option>
-    </Option>
-    <Option name="script:expressiontostringconverter_1" type="Map">
-      <Option name="active" value="true" type="bool"/>
-      <Option name="alg_config"/>
-      <Option name="alg_id" value="script:expressiontostringconverter" type="QString"/>
-      <Option name="component_description" value="Convert expression to string" type="QString"/>
-      <Option name="component_pos_x" value="678" type="double"/>
-      <Option name="component_pos_y" value="294" type="double"/>
+      <Option type="QString" name="component_description" value="import vector layer"/>
+      <Option type="double" name="component_height" value="30"/>
+      <Option type="double" name="component_pos_x" value="454.81533646322373"/>
+      <Option type="double" name="component_pos_y" value="275.0594679186229"/>
+      <Option type="double" name="component_width" value="200"/>
       <Option name="dependencies"/>
-      <Option name="id" value="script:expressiontostringconverter_1" type="QString"/>
+      <Option type="QString" name="id" value="script:import vector layer"/>
       <Option name="outputs"/>
-      <Option name="outputs_collapsed" value="true" type="bool"/>
-      <Option name="parameters_collapsed" value="true" type="bool"/>
-      <Option name="params" type="Map">
-        <Option name="INPUT" type="List">
+      <Option type="bool" name="outputs_collapsed" value="true"/>
+      <Option type="bool" name="parameters_collapsed" value="true"/>
+      <Option type="Map" name="params">
+        <Option type="List" name="VERBOSE_LOG">
           <Option type="Map">
-            <Option name="parameter_name" value="dbconnectionnameexpression" type="QString"/>
-            <Option name="source" value="0" type="int"/>
+            <Option type="int" name="source" value="2"/>
+            <Option type="bool" name="static_value" value="false"/>
           </Option>
         </Option>
-      </Option>
-    </Option>
-    <Option name="script:resourcenamevalidator_1" type="Map">
-      <Option name="active" value="true" type="bool"/>
-      <Option name="alg_config"/>
-      <Option name="alg_id" value="script:resourcenamevalidator" type="QString"/>
-      <Option name="component_description" value="Validate resource name" type="QString"/>
-      <Option name="component_pos_x" value="401" type="double"/>
-      <Option name="component_pos_y" value="287" type="double"/>
-      <Option name="dependencies"/>
-      <Option name="id" value="script:resourcenamevalidator_1" type="QString"/>
-      <Option name="outputs"/>
-      <Option name="outputs_collapsed" value="true" type="bool"/>
-      <Option name="parameters_collapsed" value="true" type="bool"/>
-      <Option name="params" type="Map">
-        <Option name="INPUT_LAYER" type="List">
+        <Option type="List" name="dbconnectionnameexpression">
           <Option type="Map">
-            <Option name="source" value="2" type="int"/>
-            <Option name="static_value" value="" type="QString"/>
+            <Option type="QString" name="parameter_name" value="dbconnectionnameexpression"/>
+            <Option type="int" name="source" value="0"/>
           </Option>
         </Option>
-        <Option name="INPUT_NAME" type="List">
+        <Option type="List" name="inputlayer">
           <Option type="Map">
-            <Option name="parameter_name" value="layername" type="QString"/>
-            <Option name="source" value="0" type="int"/>
+            <Option type="QString" name="parameter_name" value="inputlayer"/>
+            <Option type="int" name="source" value="0"/>
+          </Option>
+        </Option>
+        <Option type="List" name="layername">
+          <Option type="Map">
+            <Option type="QString" name="parameter_name" value="layername"/>
+            <Option type="int" name="source" value="0"/>
           </Option>
         </Option>
       </Option>
     </Option>
   </Option>
+  <Option name="designerParameterValues"/>
+  <Option name="groupBoxes"/>
   <Option name="help"/>
   <Option name="modelVariables"/>
-  <Option name="model_group" value="DomiNode" type="QString"/>
-  <Option name="model_name" value="import vector layer" type="QString"/>
-  <Option name="parameterDefinitions" type="Map">
-    <Option name="dbconnectionnameexpression" type="Map">
-      <Option name="default" value=" @dominode_db_connection_name " type="QString"/>
-      <Option name="description" value="DB connection name" type="QString"/>
-      <Option name="flags" value="0" type="int"/>
+  <Option type="QString" name="model_group" value="DomiNode"/>
+  <Option type="QString" name="model_name" value="import vector layer"/>
+  <Option type="Map" name="parameterDefinitions">
+    <Option type="Map" name="dbconnectionnameexpression">
+      <Option type="QString" name="default" value=" @dominode_db_connection_name "/>
+      <Option type="invalid" name="defaultGui"/>
+      <Option type="QString" name="description" value="DB connection name"/>
+      <Option type="int" name="flags" value="0"/>
+      <Option type="QString" name="help" value=""/>
       <Option name="metadata"/>
-      <Option name="name" value="dbconnectionnameexpression" type="QString"/>
-      <Option name="parameter_type" value="expression" type="QString"/>
-      <Option name="parent_layer" value="" type="QString"/>
+      <Option type="QString" name="name" value="dbconnectionnameexpression"/>
+      <Option type="QString" name="parameter_type" value="expression"/>
+      <Option type="QString" name="parent_layer" value=""/>
     </Option>
-    <Option name="inputlayer" type="Map">
-      <Option name="data_types" type="List">
-        <Option value="-1" type="int"/>
+    <Option type="Map" name="inputlayer">
+      <Option type="List" name="data_types">
+        <Option type="int" value="-1"/>
       </Option>
-      <Option name="default" type="invalid"/>
-      <Option name="description" value="Input layer" type="QString"/>
-      <Option name="flags" value="0" type="int"/>
+      <Option type="invalid" name="default"/>
+      <Option type="invalid" name="defaultGui"/>
+      <Option type="QString" name="description" value="Input layer"/>
+      <Option type="int" name="flags" value="0"/>
+      <Option type="QString" name="help" value=""/>
       <Option name="metadata"/>
-      <Option name="name" value="inputlayer" type="QString"/>
-      <Option name="parameter_type" value="vector" type="QString"/>
+      <Option type="QString" name="name" value="inputlayer"/>
+      <Option type="QString" name="parameter_type" value="vector"/>
     </Option>
-    <Option name="layername" type="Map">
-      <Option name="default" value="" type="QString"/>
-      <Option name="description" value="output table name" type="QString"/>
-      <Option name="flags" value="0" type="int"/>
+    <Option type="Map" name="layername">
+      <Option type="QString" name="default" value=""/>
+      <Option type="invalid" name="defaultGui"/>
+      <Option type="QString" name="description" value="output table name"/>
+      <Option type="int" name="flags" value="0"/>
+      <Option type="QString" name="help" value=""/>
       <Option name="metadata"/>
-      <Option name="multiline" value="false" type="bool"/>
-      <Option name="name" value="layername" type="QString"/>
-      <Option name="parameter_type" value="string" type="QString"/>
+      <Option type="bool" name="multiline" value="false"/>
+      <Option type="QString" name="name" value="layername"/>
+      <Option type="QString" name="parameter_type" value="string"/>
     </Option>
   </Option>
-  <Option name="parameters" type="Map">
-    <Option name="dbconnectionnameexpression" type="Map">
-      <Option name="component_description" value="dbconnectionnameexpression" type="QString"/>
-      <Option name="component_pos_x" value="685" type="double"/>
-      <Option name="component_pos_y" value="128" type="double"/>
-      <Option name="name" value="dbconnectionnameexpression" type="QString"/>
+  <Option name="parameterOrder"/>
+  <Option type="Map" name="parameters">
+    <Option type="Map" name="dbconnectionnameexpression">
+      <Option type="QString" name="color" value=""/>
+      <Option type="Map" name="comment">
+        <Option type="QString" name="color" value=""/>
+        <Option type="QString" name="component_description" value=""/>
+        <Option type="double" name="component_height" value="30"/>
+        <Option type="double" name="component_pos_x" value="0"/>
+        <Option type="double" name="component_pos_y" value="0"/>
+        <Option type="double" name="component_width" value="200"/>
+        <Option type="bool" name="outputs_collapsed" value="false"/>
+        <Option type="bool" name="parameters_collapsed" value="false"/>
+      </Option>
+      <Option type="QString" name="component_description" value="dbconnectionnameexpression"/>
+      <Option type="double" name="component_height" value="30"/>
+      <Option type="double" name="component_pos_x" value="685"/>
+      <Option type="double" name="component_pos_y" value="128"/>
+      <Option type="double" name="component_width" value="200"/>
+      <Option type="QString" name="name" value="dbconnectionnameexpression"/>
+      <Option type="bool" name="outputs_collapsed" value="false"/>
+      <Option type="bool" name="parameters_collapsed" value="false"/>
     </Option>
-    <Option name="inputlayer" type="Map">
-      <Option name="component_description" value="inputlayer" type="QString"/>
-      <Option name="component_pos_x" value="143" type="double"/>
-      <Option name="component_pos_y" value="128" type="double"/>
-      <Option name="name" value="inputlayer" type="QString"/>
+    <Option type="Map" name="inputlayer">
+      <Option type="QString" name="color" value=""/>
+      <Option type="Map" name="comment">
+        <Option type="QString" name="color" value=""/>
+        <Option type="QString" name="component_description" value=""/>
+        <Option type="double" name="component_height" value="30"/>
+        <Option type="double" name="component_pos_x" value="0"/>
+        <Option type="double" name="component_pos_y" value="0"/>
+        <Option type="double" name="component_width" value="200"/>
+        <Option type="bool" name="outputs_collapsed" value="false"/>
+        <Option type="bool" name="parameters_collapsed" value="false"/>
+      </Option>
+      <Option type="QString" name="component_description" value="inputlayer"/>
+      <Option type="double" name="component_height" value="30"/>
+      <Option type="double" name="component_pos_x" value="135"/>
+      <Option type="double" name="component_pos_y" value="68"/>
+      <Option type="double" name="component_width" value="200"/>
+      <Option type="QString" name="name" value="inputlayer"/>
+      <Option type="bool" name="outputs_collapsed" value="false"/>
+      <Option type="bool" name="parameters_collapsed" value="false"/>
     </Option>
-    <Option name="layername" type="Map">
-      <Option name="component_description" value="layername" type="QString"/>
-      <Option name="component_pos_x" value="410" type="double"/>
-      <Option name="component_pos_y" value="84" type="double"/>
-      <Option name="name" value="layername" type="QString"/>
+    <Option type="Map" name="layername">
+      <Option type="QString" name="color" value=""/>
+      <Option type="Map" name="comment">
+        <Option type="QString" name="color" value=""/>
+        <Option type="QString" name="component_description" value=""/>
+        <Option type="double" name="component_height" value="30"/>
+        <Option type="double" name="component_pos_x" value="0"/>
+        <Option type="double" name="component_pos_y" value="0"/>
+        <Option type="double" name="component_width" value="200"/>
+        <Option type="bool" name="outputs_collapsed" value="false"/>
+        <Option type="bool" name="parameters_collapsed" value="false"/>
+      </Option>
+      <Option type="QString" name="component_description" value="layername"/>
+      <Option type="double" name="component_height" value="30"/>
+      <Option type="double" name="component_pos_x" value="410"/>
+      <Option type="double" name="component_pos_y" value="84"/>
+      <Option type="double" name="component_width" value="200"/>
+      <Option type="QString" name="name" value="layername"/>
+      <Option type="bool" name="outputs_collapsed" value="false"/>
+      <Option type="bool" name="parameters_collapsed" value="false"/>
     </Option>
   </Option>
 </Option>
